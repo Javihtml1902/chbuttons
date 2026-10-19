@@ -1,366 +1,1212 @@
-<html lang="es" data-theme="dark"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#151322">
-    <meta name="description" content="CHbuttons: sonidos, memes y música para escuchar y compartir de forma responsable.">
+<!DOCTYPE html>
+<html data-theme="dark" lang="es"><head>
+
+    <meta charset="utf-8"/>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <meta content="#151322" name="theme-color"/>
+
+    <meta content="CHbuttons: sonidos, memes y música para escuchar con tus orejas"/>
+
     <title>CHbuttons — Creado por Javier</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+
+
 
     <style>
+
         :root {
+
             color-scheme: light;
+
             --purple: #6956e8;
+
             --purple-dark: #392b98;
+
             --purple-light: #eeebff;
+
             --orange: #ff784f;
+
             --ink: #26223b;
+
             --muted: #716d83;
+
             --surface: #ffffff;
+
             --surface-soft: #fffdfb;
+
             --page: #f7f6ff;
+
             --line: #e8e4fb;
+
             --shadow: 0 12px 32px rgba(58, 43, 130, 0.09);
-            --warning-bg: #fff9e9;
-            --warning-line: #f2dba0;
-            --warning-ink: #665b43;
-            --warning-title: #76520b;
-        }
+
+}
+
+
 
         html[data-theme="dark"] {
+
             color-scheme: dark;
+
             --ink: #f1efff;
+
             --muted: #b7b2d0;
+
             --surface: #211e35;
+
             --surface-soft: #262135;
+
             --page: #151322;
+
             --line: #39334f;
+
             --shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
-            --warning-bg: #30291a;
-            --warning-line: #6d5524;
-            --warning-ink: #e0d4b8;
-            --warning-title: #ffda83;
+
         }
+
+
 
         * { box-sizing: border-box; }
+
         html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
         body {
+
             margin: 0;
+
             min-width: 0;
+
             overflow-x: hidden;
+
             color: var(--ink);
+
             background:
+
                 radial-gradient(circle at 8% 8%, rgba(255, 190, 160, .16), transparent 23rem),
+
                 radial-gradient(circle at 94% 25%, rgba(185, 173, 255, .17), transparent 26rem),
+
                 var(--page);
+
             font-family: 'Poppins', sans-serif;
+
             line-height: 1.6;
+
             transition: background-color .2s ease, color .2s ease;
+
         }
+
         a { color: inherit; }
+
         button, a { -webkit-tap-highlight-color: transparent; }
+
         button, .quick-link { font: inherit; }
 
+
+
         .site-header {
+
             position: relative;
+
             overflow: hidden;
+
             padding: clamp(38px, 6vw, 56px) 20px clamp(32px, 5vw, 48px);
+
             color: #fff;
+
             text-align: center;
+
             background: linear-gradient(135deg, #5140c8 0%, #7965f2 58%, #a18bff 100%);
+
             border-radius: 0 0 34px 34px;
+
             box-shadow: 0 14px 35px rgba(74, 56, 187, .2);
+
         }
+
         .site-header::before, .site-header::after {
+
             content: ""; position: absolute; border: 2px solid rgba(255, 255, 255, .16);
+
             border-radius: 50%; pointer-events: none;
+
         }
+
         .site-header::before { width: 230px; height: 230px; left: -90px; top: -110px; }
+
         .site-header::after { width: 310px; height: 310px; right: -110px; bottom: -220px; }
+
         .hero-content { position: relative; z-index: 1; max-width: 850px; margin: auto; }
+
         .eyebrow {
+
             display: inline-flex; align-items: center; gap: 8px; margin: 0 0 12px; padding: 6px 13px;
+
             color: #fff; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .25);
+
             border-radius: 999px; font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+
         }
+
         h1 { margin: 0; font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.08; font-weight: 800; letter-spacing: -2.5px; overflow-wrap: anywhere; }
+
         .brand-mark { color: #ffe18b; }
+
         .tagline { margin: 17px auto 0; max-width: 560px; color: rgba(255, 255, 255, .9); font-size: clamp(.95rem, 2.5vw, 1.12rem); }
+
         .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-top: 25px; }
+
         .hero-tags span { padding: 7px 12px; color: #fff; background: rgba(43, 31, 130, .22); border-radius: 10px; font-size: .82rem; font-weight: 600; }
 
+
+
         /* Barra de accesos rápidos y modo oscuro */
+
         .quick-nav-wrap { position: sticky; top: 10px; z-index: 20; width: min(1000px, calc(100% - 28px)); margin: 16px auto 0; }
+
         .quick-nav {
+
             display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 9px;
+
             padding: 10px; background: color-mix(in srgb, var(--surface) 90%, transparent);
+
             border: 1px solid var(--line); border-radius: 17px; box-shadow: var(--shadow); backdrop-filter: blur(14px);
+
         }
+
         .quick-nav-label { padding: 0 5px; color: var(--muted); font-size: .78rem; font-weight: 700; }
+
         .quick-link, .theme-toggle {
+
             display: inline-flex; min-height: 42px; align-items: center; justify-content: center; gap: 7px;
+
             padding: 9px 15px; border: 1px solid var(--line); border-radius: 12px;
+
             background: var(--surface); color: var(--ink); font-size: .86rem; font-weight: 700;
+
             text-decoration: none; cursor: pointer; transition: transform .18s ease, background .18s ease, border-color .18s ease;
+
         }
+
         .quick-link:hover, .theme-toggle:hover { transform: translateY(-2px); border-color: #bcb0ff; }
+
         .quick-link.memes { color: #fff; background: var(--purple); border-color: var(--purple); }
+
         .quick-link.memes:hover { background: var(--purple-dark); }
+
         .theme-toggle { border-color: #c8c0fa; }
 
+
+
         main { width: min(1120px, calc(100% - 36px)); margin: 34px auto 60px; }
+
         .section-heading { display: flex; align-items: center; gap: 14px; margin: 0 0 20px; scroll-margin-top: 105px; }
+
         .heading-icon {
+
             display: grid; place-items: center; flex: 0 0 48px; width: 48px; height: 48px; font-size: 1.45rem;
+
             background: var(--surface); border: 1px solid var(--line); border-radius: 15px; box-shadow: 0 6px 15px rgba(58, 43, 130, .06);
+
         }
+
         .section-heading h2 { margin: 0; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.25; }
+
         .section-heading p { margin: 4px 0 0; color: var(--muted); font-size: .9rem; }
+
         .track-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+
         .track-card {
+
             min-width: 0; overflow: hidden; padding: 14px; background: var(--surface); border: 1px solid var(--line);
+
             border-radius: 20px; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+
         }
+
         .track-card:hover { transform: translateY(-3px); border-color: #c9c0ff; box-shadow: 0 17px 34px rgba(58, 43, 130, .13); }
+
         .track-card iframe { display: block; width: 100%; height: 300px; max-width: 100%; border: 0; border-radius: 12px; background: #f2efff; }
+
         .track-credit { margin: 11px 3px 0; color: var(--muted); font-size: .75rem; line-height: 1.6; overflow-wrap: anywhere; }
+
         .track-credit a { color: #6552d9; text-decoration: none; font-weight: 600; }
+
         html[data-theme="dark"] .track-credit a { color: #b8adff; }
+
         .track-credit a:hover { text-decoration: underline; }
+
         .music-section { margin-top: 48px; }
+
         .music-section .track-card { background: var(--surface-soft); }
 
-        .warning {
-            position: relative; margin-top: 48px; padding: 25px 27px 24px; background: var(--warning-bg);
-            border: 1px solid var(--warning-line); border-left: 6px solid #f2b943; border-radius: 18px;
-            box-shadow: 0 9px 25px rgba(110, 82, 20, .06); scroll-margin-top: 100px;
-        }
-        .warning-title { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; color: var(--warning-title); font-size: 1.12rem; line-height: 1.4; }
-        .warning p { margin: 9px 0 0; color: var(--warning-ink); font-size: .91rem; }
-        .warning strong { color: var(--warning-title); }
-        footer { padding: 24px 18px 30px; color: var(--muted); text-align: center; font-size: .82rem; }
+footer { padding: 24px 18px 30px; color: var(--muted); text-align: center; font-size: .82rem; }
+
         footer .footer-logo { color: var(--purple-dark); font-weight: 800; }
+
         html[data-theme="dark"] footer .footer-logo { color: #b8adff; }
+
         :focus-visible { outline: 3px solid #ffb454; outline-offset: 3px; }
 
+
+
         @media (max-width: 760px) {
+
             .site-header { padding: 43px 18px 38px; border-radius: 0 0 25px 25px; }
+
             h1 { letter-spacing: -1.5px; }
+
             .quick-nav-wrap { top: 6px; width: calc(100% - 18px); margin-top: 10px; }
+
             .quick-nav { gap: 7px; padding: 8px; border-radius: 15px; }
+
             .quick-nav-label { flex-basis: 100%; text-align: center; }
+
             .quick-link, .theme-toggle { flex: 1 1 145px; min-width: 0; min-height: 42px; padding: 9px 10px; font-size: .8rem; }
+
             main { width: min(100% - 24px, 560px); margin-top: 27px; }
+
             .track-grid { grid-template-columns: minmax(0, 1fr); gap: 15px; }
+
             .track-card { padding: 11px; border-radius: 17px; }
+
             .track-card iframe { height: clamp(230px, 72vw, 300px); }
+
             .music-section { margin-top: 36px; }
-            .warning { margin-top: 35px; padding: 21px 18px; }
+
         }
+
         @media (max-width: 380px) {
+
             .eyebrow { font-size: .68rem; letter-spacing: .04em; }
+
             .hero-tags span { font-size: .75rem; }
+
             .section-heading { align-items: flex-start; gap: 10px; }
+
             .heading-icon { flex-basis: 42px; width: 42px; height: 42px; border-radius: 12px; }
+
             .section-heading p { font-size: .82rem; }
+
             .quick-link, .theme-toggle { flex-basis: 100%; }
-            .warning-title { font-size: 1rem; }
+
         }
+
+
+
+        /* Ventana inicial de consentimiento y ventana de términos */
+
+        body.modal-open { overflow: hidden; }
+
+        #consent-gate[hidden], #terms-dialog[hidden] { display: none !important; }
+
+        .consent-overlay, .terms-overlay {
+
+            position: fixed; inset: 0; z-index: 1000; display: flex;
+
+            align-items: center; justify-content: center; padding: 18px;
+
+            background: rgba(10, 7, 24, .78); backdrop-filter: blur(9px);
+
+        }
+
+        .terms-overlay { z-index: 1001; }
+
+        .consent-card, .terms-card {
+
+            color: var(--ink); background: var(--surface); border: 1px solid var(--line);
+
+            border-radius: 24px; box-shadow: 0 28px 90px rgba(0, 0, 0, .38);
+
+        }
+
+        .consent-card {
+
+            width: min(560px, 100%); max-height: calc(100dvh - 36px); overflow-y: auto;
+
+            padding: clamp(22px, 5vw, 36px); text-align: center;
+
+        }
+
+        .consent-icon {
+
+            display: grid; place-items: center; width: 66px; height: 66px; margin: 0 auto 15px;
+
+            color: #fff; font-size: 2rem; background: linear-gradient(135deg, var(--purple), #a18bff);
+
+            border-radius: 21px; box-shadow: 0 8px 22px rgba(105, 86, 232, .28);
+
+        }
+
+        .consent-card .eyebrow { color: var(--purple-dark); background: var(--purple-light); border-color: var(--line); }
+
+        html[data-theme="dark"] .consent-card .eyebrow { color: #e7e2ff; background: #302b4c; border-color: #4b426f; }
+
+        .consent-card h2 { margin: 0; font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.2; }
+
+        .consent-card p { color: var(--muted); font-size: .94rem; margin: 14px 0; }
+
+        .consent-card .consent-summary {
+
+            padding: 13px 15px; text-align: left; border-radius: 14px;
+
+            color: var(--ink); background: var(--purple-light); font-size: .87rem;
+
+        }
+
+        html[data-theme="dark"] .consent-card .consent-summary { background: #302b4c; }
+
+        .consent-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
+
+        .terms-button {
+
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+
+            min-height: 46px; padding: 11px 17px; border: 1px solid var(--line); border-radius: 13px;
+
+            color: var(--ink); background: var(--surface-soft); font: inherit; font-size: .9rem;
+
+            font-weight: 700; cursor: pointer; transition: transform .18s ease, filter .18s ease;
+
+        }
+
+        .terms-button:hover { transform: translateY(-2px); filter: brightness(1.04); }
+
+        .terms-button.primary { color: #fff; background: var(--purple); border-color: var(--purple); }
+
+        .consent-footnote { margin-top: 17px !important; font-size: .76rem !important; }
+
+        .terms-card {
+
+            display: flex; flex-direction: column; width: min(900px, 100%);
+
+            max-height: min(900px, calc(100dvh - 32px)); overflow: hidden;
+
+        }
+
+        .terms-topbar {
+
+            flex: 0 0 auto; padding: 22px 25px 16px; border-bottom: 1px solid var(--line);
+
+            background: var(--surface);
+
+        }
+
+        .terms-toprow { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+
+        .terms-topbar h2 { margin: 0; font-size: clamp(1.3rem, 3vw, 1.8rem); line-height: 1.2; }
+
+        .terms-topbar p { margin: 7px 0 0; color: var(--muted); font-size: .84rem; }
+
+        .terms-close {
+
+            flex: 0 0 auto; width: 39px; height: 39px; border-radius: 12px; border: 1px solid var(--line);
+
+            background: var(--surface-soft); color: var(--ink); font-size: 1.15rem; cursor: pointer;
+
+        }
+
+        .terms-content {
+
+            overflow-y: auto; overscroll-behavior: contain; padding: 22px 26px 28px;
+
+            color: var(--muted); font-size: .9rem; line-height: 1.85;
+
+        }
+
+        .terms-content p { margin: 0 0 20px; }
+
+        .terms-content strong { color: var(--ink); }
+
+        .terms-footer {
+
+            flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+
+            gap: 10px; padding: 15px 22px; background: var(--surface); border-top: 1px solid var(--line);
+
+        }
+
+        .terms-counter { color: var(--muted); font-size: .78rem; margin-right: auto; }
+
+        @media (max-width: 560px) {
+
+            .consent-overlay, .terms-overlay { padding: 9px; }
+
+            .consent-card { border-radius: 19px; }
+
+            .terms-card { max-height: calc(100dvh - 18px); border-radius: 17px; }
+
+            .terms-topbar { padding: 17px 16px 13px; }
+
+            .terms-content { padding: 17px 17px 22px; font-size: .86rem; line-height: 1.8; }
+
+            .terms-footer { padding: 12px; }
+
+            .terms-footer .terms-button { flex: 1 1 100%; }
+
+            .terms-counter { flex-basis: 100%; }
+
+            .consent-actions .terms-button { flex: 1 1 100%; }
+
+        }
+
+
+
         @media (prefers-reduced-motion: reduce) {
+
             html { scroll-behavior: auto; }
+
             *, *::before, *::after { transition: none !important; }
+
         }
-    </style>
+
+    
+
+        /* Título claro encima de cada canción; las tarjetas se generan automáticamente. */
+        .track-name-row { display: flex; align-items: flex-start; gap: 9px; margin: 2px 3px 12px; min-width: 0; }
+        .track-name-icon { flex: 0 0 auto; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; background: var(--purple-light); font-size: 1.05rem; }
+        html[data-theme="dark"] .track-name-icon { background: #302b4c; }
+        .track-name-row h3 { min-width: 0; margin: 4px 0 0; font-size: .94rem; line-height: 1.35; overflow-wrap: anywhere; }
+        .track-grid > noscript { color: var(--muted); padding: 12px; }
+</style>
 </head>
-<body>
+<body class="">
+
+    <div id="site-shell">
+
     <header class="site-header">
+
         <div class="hero-content">
+
             <p class="eyebrow">🎧 El mejor reproductor de sonidos</p>
+
             <h1>CH<span class="brand-mark">buttons</span></h1>
+
             <p class="tagline">Los mejores sonidos y memes para reproducirlos donde quieras.</p>
-            <div class="hero-tags" aria-label="Contenido de la página">
+
+            <div aria-label="Contenido de la página" class="hero-tags">
+
                 <span>😂 Memes</span>
+
                 <span>🔊 Efectos de sonido</span>
+
                 <span>🎵 Música</span>
+
             </div>
+
         </div>
+
     </header>
 
-    <nav class="quick-nav-wrap" aria-label="Accesos rápidos">
+
+
+    <nav aria-label="Accesos rápidos" class="quick-nav-wrap">
+
         <div class="quick-nav">
+
             <span class="quick-nav-label">⚡ Accesos rápidos</span>
+
             <a class="quick-link memes" href="#memes">😂 Canciones chistosas</a>
+
             <a class="quick-link" href="#musica">🎵 Música normal</a>
-            <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="true" aria-label="Activar modo claro">☀️ Modo claro</button>
+
+            <button aria-label="Activar modo claro" aria-pressed="true" class="theme-toggle" id="theme-toggle" type="button">☀️ Modo claro</button>
+
         </div>
+
     </nav>
 
+
+
     <main>
-        <section id="memes" aria-labelledby="popular-title">
+
+        <section aria-labelledby="popular-title" id="memes">
+
             <div class="section-heading">
-                <div class="heading-icon" aria-hidden="true">🔥</div>
+
+                <div aria-hidden="true" class="heading-icon">🔥</div>
+
                 <div>
-                    <h2 id="popular-title">Memes y más</h2>
+
+                    <h2 id="popular-title" tabindex="-1">Memes y más</h2>
+
                     <p>Diviértete escuchando canciones populares y chistosas del momento.</p>
+
                 </div>
+
             </div>
 
-            <div class="track-grid">
-                <article class="track-card">
-                    <iframe title="Spider-Man Polyester Edit — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2371906415&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/herrrichard" target="_blank" rel="noopener noreferrer">goonn</a> · <a href="https://soundcloud.com/herrrichard/spider-man-polyester-edit" target="_blank" rel="noopener noreferrer">Spider-Man Polyester Edit (looped)</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Wind Waker Great Fairy Fountain — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2357602817&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/aslan-asrin" target="_blank" rel="noopener noreferrer">senkor</a> · <a href="https://soundcloud.com/aslan-asrin/wind-waker-great-fairy" target="_blank" rel="noopener noreferrer">Wind Waker - Great Fairy Fountain slowed + reverb</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Goofy Ahh Sounds — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2328797786&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/ikwavv" target="_blank" rel="noopener noreferrer">ik.wav</a> · <a href="https://soundcloud.com/ikwavv/gummibaer-x-goofy-ahh-sounds-x" target="_blank" rel="noopener noreferrer">Gummibär x Goofy Ahh Sounds</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Goofy Ahh Type Beat — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1373760355&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/yanis-bouimah" target="_blank" rel="noopener noreferrer">Yanis Bouimah</a> · <a href="https://soundcloud.com/yanis-bouimah/goofy-ahh-type-beat-part-2-bababooey-phonk" target="_blank" rel="noopener noreferrer">Goofy Ahh Type Beat Part 2 (Bababooey Phonk)</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Clash Royale Intro — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1363014661&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/sponge-roblox" target="_blank" rel="noopener noreferrer">straight chillin</a> · <a href="https://soundcloud.com/sponge-roblox/clash-royale-intro" target="_blank" rel="noopener noreferrer">Clash Royale Intro</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Minecraft Grass Walking Sound Effect — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A438731601&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/user-487184331" target="_blank" rel="noopener noreferrer">Yoni Rottner</a> · <a href="https://soundcloud.com/user-487184331/minecraft-sound-effects-walking-and-running-on-grass-sound-effect" target="_blank" rel="noopener noreferrer">Minecraft Sound Effects: Walking on Grass</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Hello I'm Your Neighbor 808 Remix — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2336888309&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/bombermanreal" target="_blank" rel="noopener noreferrer">Bomberman1003</a> · <a href="https://soundcloud.com/bombermanreal/hello-im-your-neighbor-808" target="_blank" rel="noopener noreferrer">Hello I’m Your Neighbor 808 Remix (Full Version)</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="It's Me It's Verity — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2363233844&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/bodyee-farhan-949354716" target="_blank" rel="noopener noreferrer">Horror skunx</a> · <a href="https://soundcloud.com/bodyee-farhan-949354716/its-me-its-verity" target="_blank" rel="noopener noreferrer">ITS ME ITS VERITY (BOI TUFF ALERT)</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Past Lives — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A664919612&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/slushiisociety" target="_blank" rel="noopener noreferrer">The Society of Slushii</a> · <a href="https://soundcloud.com/slushiisociety/past-lives" target="_blank" rel="noopener noreferrer">Past Lives</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Misery — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2285257661&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/pupsies" target="_blank" rel="noopener noreferrer">pupsies</a> · <a href="https://soundcloud.com/pupsies/misery-prod-pupsies-elujjin" target="_blank" rel="noopener noreferrer">misery . . . (prod. pupsies &amp; elujjin/goetia)</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Yara Yara Phonk — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2325123644&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/not-rozshow" target="_blank" rel="noopener noreferrer">@lehadollar</a> · <a href="https://soundcloud.com/not-rozshow/yara-yara-fonk-aura-farming" target="_blank" rel="noopener noreferrer">yara yara phonk (aura farming)</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="John Pork Is Calling — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2230654448&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/tyler-yopa" target="_blank" rel="noopener noreferrer">Tyler Yopa</a> · <a href="https://soundcloud.com/tyler-yopa/john-pork-is-calling-moooort" target="_blank" rel="noopener noreferrer">john pork is calling</a></div>
-                </article>
-            </div>
+
+
+            <div aria-label="Lista de canciones" class="track-grid" id="memes-grid"><noscript>Activa JavaScript en tu navegador para cargar los reproductores de SoundCloud.</noscript></div>
+
         </section>
 
-        <section class="music-section" id="musica" aria-labelledby="music-title">
+
+
+        <section aria-labelledby="music-title" class="music-section" id="musica">
+
             <div class="section-heading">
-                <div class="heading-icon" aria-hidden="true">🎶</div>
+
+                <div aria-hidden="true" class="heading-icon">🎶</div>
+
                 <div>
+
                     <h2 id="music-title">La música normal</h2>
+
                     <p>Selección prémium</p>
+
                 </div>
+
             </div>
 
-            <div class="track-grid">
-                <article class="track-card">
-                    <iframe title="Freedom Dive — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A203047583&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/whoisthisperson" target="_blank" rel="noopener noreferrer">Xi</a> · <a href="https://soundcloud.com/whoisthisperson/xi-freedom-dive" target="_blank" rel="noopener noreferrer">xi - Freedom Dive↓ (Full)</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Flavor Foley Static ft. Hatsune Miku — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2101469796&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/radwon-604390619" target="_blank" rel="noopener noreferrer">Flavor Foley</a> · <a href="https://soundcloud.com/radwon-604390619/static-ft-hatsune-miku" target="_blank" rel="noopener noreferrer">FLAVOR FOLEY Static ft. Hatsune Miku</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Birdbrain — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2221265813&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/1-3-50n" target="_blank" rel="noopener noreferrer">Jaime Paige</a> · <a href="https://soundcloud.com/1-3-50n/birdbrain" target="_blank" rel="noopener noreferrer">BIRDBRAIN</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Color and Electricity — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A447315318&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/user615214061" target="_blank" rel="noopener noreferrer">Dilly Drop</a> · <a href="https://soundcloud.com/user615214061/mushi-p-x-hatsune-miku-color-and-electricity" target="_blank" rel="noopener noreferrer">色彩電気 / Color &amp; Electricity</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Sherbet Lobby — Nico's Nextbots — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1571175499&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/nicos-nextbots-ost" target="_blank" rel="noopener noreferrer">Nico's Nextbots (Soundtrack)</a> · <a href="https://soundcloud.com/nicos-nextbots-ost/sherbet-lobby-nicos-nextbots" target="_blank" rel="noopener noreferrer">Sherbet Lobby - Nico's Nextbots</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Pluggnb Lobby — Nico's Nextbots — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1567790248&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/nicos-nextbots-ost" target="_blank" rel="noopener noreferrer">Nico's Nextbots (Soundtrack)</a> · <a href="https://soundcloud.com/nicos-nextbots-ost/pluggnb-lobby-nicos-nextbots" target="_blank" rel="noopener noreferrer">Pluggnb Lobby - Nico's Nextbots</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Nextbob Lobby — Nico's Nextbots — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1477887109&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/nicos-nextbots-ost" target="_blank" rel="noopener noreferrer">Nico's Nextbots (Soundtrack)</a> · <a href="https://soundcloud.com/nicos-nextbots-ost/nextbob-lobby-nicos-nextbots" target="_blank" rel="noopener noreferrer">Nextbob Lobby - Nico's Nextbots</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Little Big Lobby — Nico's Nextbots — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1579197799&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/nicos-nextbots-ost" target="_blank" rel="noopener noreferrer">Nico's Nextbots (Soundtrack)</a> · <a href="https://soundcloud.com/nicos-nextbots-ost/little-big-lobby-nicos-nextbots-1" target="_blank" rel="noopener noreferrer">Little Big Lobby - Nico's Nextbots</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Dreiton — C418 — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1123968856&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/user-208982708" target="_blank" rel="noopener noreferrer">C418</a> · <a href="https://soundcloud.com/user-208982708/c418-dreiton-second-half" target="_blank" rel="noopener noreferrer">Dreiton</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Mice on Venus — C418 — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1329200482&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/withered-aspectmage" target="_blank" rel="noopener noreferrer">C418</a> · <a href="https://soundcloud.com/withered-aspectmage/mice-on-venus" target="_blank" rel="noopener noreferrer">Mice on Venus</a></div>
-                </article>
-                <article class="track-card">
-                    <iframe title="Pigstep — Minecraft — SoundCloud" loading="lazy" scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2059440420&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-                    <div class="track-credit"><a href="https://soundcloud.com/infinited-690315673" target="_blank" rel="noopener noreferrer">Lena Raine_</a> · <a href="https://soundcloud.com/infinited-690315673/pigstep-stereo-mix-minecraft" target="_blank" rel="noopener noreferrer">Pigstep - Minecraft</a></div>
-                </article>
-            </div>
+
+
+            <div aria-label="Lista de canciones" class="track-grid" id="musica-grid"><noscript>Activa JavaScript en tu navegador para cargar los reproductores de SoundCloud.</noscript></div>
+
         </section>
+</main>
 
-        <aside class="warning" aria-labelledby="warning-title">
-            <h2 class="warning-title" id="warning-title"><span aria-hidden="true">⚠️</span> Advertencia y aviso de responsabilidad</h2>
-            <p>Esta página ha sido creada exclusivamente con fines recreativos y de entretenimiento. Su creador no está asociado ni se hace responsable de las personas que utilicen los sonidos disponibles en este sitio para reproducirlos a un volumen elevado, interrumpir clases, perturbar el orden o distraer a otras personas.</p>
-            <p>El propósito de <strong>CHbuttons</strong> es ofrecer una experiencia divertida, no fomentar conductas que interfieran con las actividades académicas, laborales o cotidianas de los demás.</p>
-            <p>Se recomienda utilizar los reproductores de manera responsable, respetando las normas de cada institución y la tranquilidad de quienes se encuentren alrededor.</p>
-            <p><strong>El uso indebido de esta página es responsabilidad exclusiva de cada usuario.</strong></p>
-        </aside>
-    </main>
+
 
     <footer><span class="footer-logo">CHbuttons</span> · Creado por Javier, para II "A" 🎧</footer>
 
+    </div><!-- /#site-shell -->
+
+
+
     <script>
+
         (() => {
+
             const root = document.documentElement;
+
             const toggle = document.getElementById('theme-toggle');
+
             const themeColor = document.querySelector('meta[name="theme-color"]');
 
+
+
             function applyTheme(theme) {
+
                 const isDark = theme === 'dark';
+
                 root.dataset.theme = isDark ? 'dark' : 'light';
+
                 toggle.textContent = isDark ? '☀️ Modo claro' : '🌙 Modo oscuro';
+
                 toggle.setAttribute('aria-pressed', String(isDark));
+
                 toggle.setAttribute('aria-label', isDark ? 'Activar modo claro' : 'Activar modo oscuro');
+
                 themeColor.setAttribute('content', isDark ? '#151322' : '#6956e8');
+
             }
+
+
 
             let savedTheme = 'light';
+
             try {
+
                 savedTheme = localStorage.getItem('chbuttons-theme') || 'light';
+
             } catch (error) {
+
                 // Si el navegador bloquea el almacenamiento, el botón seguirá funcionando.
+
             }
+
             applyTheme(savedTheme);
 
+
+
             toggle.addEventListener('click', () => {
+
                 const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+
                 applyTheme(nextTheme);
+
                 try {
+
                     localStorage.setItem('chbuttons-theme', nextTheme);
+
                 } catch (error) {
+
                     // El modo cambia aunque no se pueda guardar la preferencia.
+
                 }
+
             });
+
         })();
+
     </script>
 
 
+
+
+
+
+
+    <!-- El sitio queda bloqueado hasta que el visitante acepte. -->
+
+    <div class="consent-overlay" hidden="" id="consent-gate">
+
+        <section aria-labelledby="consent-title" aria-modal="true" class="consent-card" role="dialog">
+
+            <div aria-hidden="true" class="consent-icon">🎧</div>
+
+            <p class="eyebrow">Bienvenido a CHbuttons</p>
+
+            <h2 id="consent-title">Antes de entrar…</h2>
+
+            <p>Esta página reúne canciones, memes y efectos de sonido de servicios externos. Antes de acceder, revisa el aviso y decide si aceptas continuar.</p>
+
+            <p class="consent-summary"><strong>Lo esencial:</strong> usa un volumen responsable, no interrumpas clases ni actividades ajenas y recuerda que los reproductores y sus audios pertenecen a sus respectivos autores y plataformas.</p>
+
+            <div class="consent-actions">
+
+                <button class="terms-button primary" id="accept-terms" type="button">✅ Acepto y entrar</button>
+
+                <button class="terms-button" id="view-terms" type="button">📜 Ver términos y condiciones</button>
+
+            </div>
+
+            <p class="consent-footnote">Tu elección de aceptación se guarda en este navegador. Si borras sus datos o cambias de dispositivo, el aviso podría volver a aparecer.</p>
+
+        </section>
+
+    </div>
+
+
+
+    <div class="terms-overlay" hidden="" id="terms-dialog">
+
+        <section aria-labelledby="terms-title" aria-modal="true" class="terms-card" role="dialog">
+
+            <header class="terms-topbar">
+
+                <div class="terms-toprow">
+
+                    <div>
+
+                        <h2 id="terms-title">📜 Términos y condiciones de CHbuttons</h2>
+
+                        <p>Edición extraordinariamente burocrática · 20 párrafos · leer con calma, café y paciencia.</p>
+
+                    </div>
+
+                    <button aria-label="Volver al aviso inicial" class="terms-close" id="close-terms" type="button">✕</button>
+
+                </div>
+
+            </header>
+
+            <div class="terms-content" id="terms-content" tabindex="0">
+
+                <p><strong>1. Naturaleza general del sitio y alcance de la aceptación.</strong> CHbuttons, denominado en adelante de manera intercambiable como «el sitio», «la página», «la plataforma», «el pequeño museo de sonidos» o cualquier otra expresión que resulte gramaticalmente razonable en el contexto de una conversación informal sobre audio digital, constituye un proyecto recreativo de carácter personal. El acceso al contenido se habilita después de que el visitante pulse el control identificado como «Acepto y entrar», acción que este sitio interpreta, únicamente a efectos de su funcionamiento, como confirmación de que el visitante ha tenido la oportunidad de consultar estas condiciones, ha comprendido su propósito general y desea continuar voluntariamente.</p>
+
+                <p><strong>2. Definiciones Inportantes</strong> A los efectos de la lectura de este documento, «usuario» significa toda persona que visualice, toque, pulse, active, reproduzca, silencie, pause, reanude o simplemente contemple con curiosidad cualquiera de los reproductores; «sonido» abarca pistas musicales, efectos, memes auditivos, composiciones, fragmentos, silencios que parezcan sospechosos y cualquier audio ofrecido por terceros; «reproductor incrustado» designa el recuadro de un servicio externo que aparece dentro de CHbuttons; y «volumen razonable» se entenderá, de manera no matemática, como aquel que no obliga a nadie situado cerca a convertirse en oyente involuntario.</p>
+
+                <p><strong>3. Finalidad recreativa y ausencia de solemnidad.</strong> La finalidad principal de CHbuttons es proporcionar entretenimiento casual mediante una colección organizada de sonidos y música. No se presenta como una herramienta educativa certificada, un sistema de evaluación académica, un servicio profesional de producción musical, una biblioteca oficial de titulares de derechos, un sustituto de auriculares ni un dispositivo de emergencia. Cualquier interpretación que convierta un botón de sonido en un instrumento de solemnidad institucional, disciplina colectiva o análisis científico deberá considerarse una interpretación ajena al propósito ordinario del proyecto, salvo que el usuario esté haciendo un estudio académico legítimo sobre interfaces web.</p>
+
+                <p><strong>4. Volumen, auriculares y convivencia acústica.</strong> Cada usuario es responsable de regular el volumen del equipo que utilice antes y durante la reproducción, teniendo en cuenta que ciertos efectos —especialmente golpes graves, pitidos agudos, gritos, explosiones ficticias y los sonidos que parecen diseñados para sorprender a alguien— pueden percibirse como notablemente más fuertes de lo esperado. Se recomienda comenzar con volumen bajo, aumentarlo de forma gradual y preferir auriculares cuando proceda. La existencia de un botón vistoso no constituye autorización para convertir un salón, aula, biblioteca, transporte público o espacio compartido en una sala de efectos especiales de presupuesto ilimitado.</p>
+
+                <p><strong>5. Clases, trabajo, bibliotecas y demás lugares sensibles.</strong> CHbuttons no pretende promover interrupciones de clases, reuniones, evaluaciones, actividades de trabajo, exposiciones, bibliotecas, ceremonias, consultas, conversaciones privadas ni cualquier circunstancia en la que otras personas tengan una expectativa razonable de concentración o tranquilidad. Si el usuario decide reproducir un audio en un lugar donde ello distraiga, incomode, intimide, sobresalte o impida escuchar a otra persona, esa decisión corresponde al usuario y no a una instrucción del creador. El sentido del humor, por saludable que sea, no transforma automáticamente una interrupción en una contribución cultural necesaria.</p>
+
+                <p><strong>6. Responsabilidad por el uso individual.</strong> El visitante elige qué reproducir, cuándo hacerlo, con qué dispositivo y a qué volumen; por esa razón, le corresponde considerar las consecuencias previsibles de su conducta y respetar las normas del establecimiento o espacio donde se encuentre. CHbuttons no puede observar el entorno físico del usuario, controlar los altavoces de su equipo, comprobar si existe una clase en curso ni determinar si el público circundante disfruta del sonido. Por ello, la página ofrece reproductores y enlaces, no una certificación de que cualquier reproducción en cualquier situación sea apropiada.</p>
+
+                <p><strong>7. Ausencia de asociación con artistas y plataformas.</strong> Salvo indicación expresa en el propio servicio externo, CHbuttons no está afiliada, patrocinada, certificada, administrada ni aprobada por SoundCloud, los artistas, los titulares de derechos, las discográficas, los desarrolladores de videojuegos, los fabricantes de dispositivos, las personas que aparecen en carátulas ni los creadores de los memes referenciados. Los nombres, marcas, imágenes y títulos pertenecen a sus respectivos titulares. Su aparición tiene fines de identificación y enlace, y no pretende sugerir una colaboración oficial, una licencia exclusiva ni una relación comercial que no haya sido confirmada.</p>
+
+                <p><strong>8. Reproductores externos y disponibilidad variable.</strong> Los reproductores de audio incrustados son suministrados por servicios de terceros y pueden depender de sus servidores, configuraciones, herramientas de privacidad, cookies, conexión, reglas regionales, restricciones de cuenta, derechos de distribución y decisiones de cada uploader. Por ello, un reproductor puede mostrar un mensaje de error, quedar vacío, exigir iniciar sesión, dejar de estar disponible o reproducir un contenido diferente si su propietario lo modifica. El creador de CHbuttons no controla tales sistemas ni garantiza que todos los audios funcionen permanentemente, simultáneamente o en cada país, navegador o dispositivo.</p>
+
+                <p><strong>9. Créditos, propiedad intelectual y atribución.</strong> Los créditos y enlaces que acompañan a los reproductores se incluyen para facilitar la identificación del contenido y el acceso a la página de origen. La incorporación de un reproductor no transfiere derechos de autor ni otorga al usuario autorización para apropiarse de una obra, suprimir atribuciones, presentarla como creación propia, redistribuirla fuera de las condiciones permitidas o utilizarla con fines comerciales sin las licencias que correspondan. La disponibilidad para escuchar una pista dentro de un servicio externo no debe confundirse con una autorización universal para descargarla, editarla, monetizarla o incorporarla a otros proyectos.</p>
+
+                <p><strong>10. Descargas, grabaciones y reutilización del contenido.</strong> Este sitio está concebido para escuchar contenido a través de los reproductores y enlaces que muestran sus fuentes. No ofrece una herramienta para extraer audio de los reproductores ni una promesa de que cualquier pista pueda descargarse legalmente. Si una plataforma dispone de una descarga oficial, el usuario deberá cumplir las condiciones de esa plataforma y la licencia del material concreto. La grabación de audio, su edición, su publicación de nuevo, su uso en videos, presentaciones o proyectos comerciales y cualquier forma de reutilización deben evaluarse por separado, incluyendo permisos de los titulares cuando sean necesarios.</p>
+
+                <p><strong>11. Cambios, fallos y mantenimiento imperfecto.</strong> Como proyecto recreativo de escala limitada, CHbuttons puede sufrir modificaciones de diseño, cambios de enlaces, errores de escritura, duplicaciones accidentales, ordenamientos inesperados, reproductores que tarden en cargar, funciones que dependan de navegadores modernos o pausas ocasionales de disponibilidad. El creador puede añadir, retirar, reorganizar, corregir o sustituir pistas en cualquier momento, procurando conservar la utilidad general del sitio, pero sin garantizar un calendario de actualizaciones, soporte técnico continuo, compatibilidad perpetua ni una obligación de restaurar una pista que haya desaparecido de su fuente original.</p>
+
+                <p><strong>12. Navegadores, conexión y dispositivo utilizado.</strong> La experiencia puede variar dependiendo del sistema operativo, navegador, conexión de Internet, bloqueador de contenido, configuración de privacidad, extensión instalada, nivel de batería, potencia del equipo, ajustes de sonido, permisos del navegador y estado del servicio externo. Si un audio no comienza al primer intento, el usuario puede comprobar la conexión, pulsar el botón del reproductor o abrir su enlace original. No debe intentar solucionar un fallo desactivando protecciones de seguridad sin comprender sus consecuencias, ni asumir que un problema originado en SoundCloud está necesariamente causado por el código de CHbuttons.</p>
+
+                <p><strong>13. Privacidad y ausencia de formularios personales.</strong> CHbuttons no solicita, mediante esta página estática, contraseñas, documentos de identidad, números de teléfono, direcciones particulares ni datos bancarios. La página tampoco necesita que el usuario escriba información privada para escuchar los audios. Los reproductores incrustados y enlaces externos pueden procesar datos técnicos de acuerdo con las políticas del proveedor externo, por lo que al utilizarlos el visitante también interactúa con dicho proveedor. El usuario debe consultar la política correspondiente de SoundCloud si desea conocer cómo administra ese servicio la información de sus visitantes.</p>
+
+                <p><strong>14. Preferencias guardadas localmente.</strong> Para evitar mostrar repetidamente la pantalla de bienvenida después de aceptar, la página intenta guardar una marca de aceptación en el almacenamiento local del navegador; también puede guardar la preferencia seleccionada para el tema visual claro u oscuro. Esos valores se almacenan en el navegador utilizado y no constituyen por sí mismos un sistema de cuentas ni una base de datos central del creador. Si el navegador bloquea el almacenamiento, se borra el historial del sitio o se utiliza otro perfil o dispositivo, el aviso puede volver a aparecer, porque el navegador no tendrá disponible la marca de aceptación anterior.</p>
+
+                <p><strong>15. Cookies y tecnología de terceros.</strong> El código de CHbuttons no crea intencionadamente un sistema propio de seguimiento publicitario ni un perfil de hábitos musicales. Sin embargo, los recursos externos, en particular los reproductores de SoundCloud, pueden utilizar tecnologías propias sujetas a la configuración y políticas de su proveedor. La posibilidad de que un servicio externo guarde información depende de sus reglas vigentes, del navegador y de la configuración de privacidad elegida por el usuario. Las afirmaciones de este párrafo describen el propósito general del proyecto, y no sustituyen las explicaciones oficiales de las plataformas de terceros que facilitan los audios.</p>
+
+                <p><strong>16. Enlaces externos y contenido no controlado.</strong> Los enlaces pueden dirigir a páginas de artistas, pistas, perfiles, servicios o recursos que no pertenecen a CHbuttons y sobre los cuales el creador no tiene control editorial ni técnico. Dichas páginas pueden modificar su contenido, condiciones, disponibilidad, publicidad, requisitos de acceso o tratamiento de datos sin previo aviso al proyecto. La inclusión de un enlace tiene como finalidad ayudar a localizar el audio referido, y no constituye una garantía de su seguridad, exactitud, vigencia, calidad, disponibilidad gratuita ni adecuación para todos los públicos. Antes de realizar una acción en otra página, el usuario debe revisar las condiciones aplicables allí.</p>
+
+                <p><strong>17. Uso responsable y trato a otras personas.</strong> El visitante se compromete, como recomendación básica de convivencia y no como juramento ceremonial ante un consejo intergaláctico de memes, a evitar emplear los sonidos para hostigar, amenazar, humillar, asustar deliberadamente, perseguir o perturbar repetidamente a otras personas. Una broma deja de ser una broma compartida cuando la persona que la recibe no desea participar o cuando genera un perjuicio evitable. El hecho de que una pista sea divertida, viral, popular o haya sido diseñada para sorprender no elimina la necesidad de usar criterio, respetar límites y detener la reproducción si alguien lo solicita razonablemente.</p>
+
+                <p><strong>18. Limitación razonable de garantías.</strong> CHbuttons se ofrece tal como está disponible en el momento de la visita, sin prometer funcionamiento ininterrumpido, ausencia absoluta de errores, compatibilidad universal, disponibilidad constante de terceros ni idoneidad para un objetivo particular. El creador realiza el proyecto con intención recreativa y buena fe, pero no puede responder por interrupciones del proveedor externo, cambios de licencia, decisiones de titulares, restricciones regionales, dispositivos averiados, volúmenes configurados por el usuario o consecuencias de reproducir sonidos de manera inapropiada. Nada en este párrafo pretende eliminar derechos irrenunciables que pudieran corresponder al usuario conforme a la legislación aplicable.</p>
+
+                <p><strong>19. Modificaciones de estos términos.</strong> Estas condiciones pueden ser revisadas cuando se añadan secciones, cambien los reproductores, aparezcan nuevos requisitos técnicos o resulte necesario explicar mejor alguna limitación del proyecto. Si una versión futura modifica aspectos relevantes, la página podrá volver a mostrar la pantalla de aceptación utilizando una nueva versión identificadora. La fecha y el texto visibles en cada ocasión servirán como referencia para la versión presentada. La extensión de este documento, por sí sola, no convierte cada frase en una disposición jurídicamente compleja ni implica que el usuario haya cedido derechos que la ley no permita ceder.</p>
+
+                <p><strong>20. Confirmación final, lectura y sentido común.</strong> Al pulsar «Acepto y entrar», el usuario confirma que desea acceder a CHbuttons, que se le ha ofrecido una opción para consultar estas condiciones y que entiende las recomendaciones esenciales: usar un volumen prudente, respetar las actividades de otras personas, reconocer que el contenido y los reproductores pertenecen a servicios o titulares externos y no asumir que escuchar equivale a poseer derechos sobre una obra. Estos párrafos son una explicación informativa y humorísticamente burocrática para un proyecto personal, no asesoría legal profesional ni una promesa de validez jurídica absoluta. Si no está de acuerdo, puede volver sin aceptar y cerrar la página.</p>
+
+            </div>
+
+            <footer class="terms-footer">
+
+                <span class="terms-counter">20 párrafos · el sonido no se reproducirá automáticamente.</span>
+
+                <button class="terms-button" id="back-to-gate" type="button">Volver al aviso</button>
+
+                <button class="terms-button primary" id="accept-terms-from-dialog" type="button">✅ Acepto y entrar</button>
+
+            </footer>
+
+        </section>
+
+    </div>
+
+
+
+
+
+    <script>
+
+        (() => {
+
+            const siteShell = document.getElementById('site-shell');
+
+            const gate = document.getElementById('consent-gate');
+
+            const termsDialog = document.getElementById('terms-dialog');
+
+            const termsContent = document.getElementById('terms-content');
+
+            const acceptButton = document.getElementById('accept-terms');
+
+            const acceptFromTermsButton = document.getElementById('accept-terms-from-dialog');
+
+            const viewTermsButton = document.getElementById('view-terms');
+
+            const closeTermsButton = document.getElementById('close-terms');
+
+            const backButton = document.getElementById('back-to-gate');
+
+            const TERMS_KEY = 'chbuttons-terms-accepted-v1';
+
+
+
+            let accepted = false;
+
+            try {
+
+                accepted = localStorage.getItem(TERMS_KEY) === 'yes';
+
+            } catch (error) {
+
+                // Si el navegador bloquea el almacenamiento, se pide aceptar en cada sesión.
+
+            }
+
+
+
+            function showGate() {
+
+                gate.hidden = false;
+
+                termsDialog.hidden = true;
+
+                siteShell.inert = true;
+
+                document.body.classList.add('modal-open');
+
+                acceptButton.focus();
+
+            }
+
+
+
+            function showTerms() {
+
+                gate.hidden = true;
+
+                termsDialog.hidden = false;
+
+                termsContent.scrollTop = 0;
+
+                document.body.classList.add('modal-open');
+
+                closeTermsButton.focus();
+
+            }
+
+
+
+            function acceptTerms() {
+
+                try {
+
+                    localStorage.setItem(TERMS_KEY, 'yes');
+
+                } catch (error) {
+
+                    // La página se habilita igualmente; quizá vuelva a pedir aceptación al recargar.
+
+                }
+
+                accepted = true;
+
+                gate.hidden = true;
+
+                termsDialog.hidden = true;
+
+                siteShell.inert = false;
+
+                document.body.classList.remove('modal-open');
+
+                document.getElementById('popular-title')?.setAttribute('tabindex', '-1');
+
+                document.getElementById('popular-title')?.focus();
+
+            }
+
+
+
+            acceptButton.addEventListener('click', acceptTerms);
+
+            acceptFromTermsButton.addEventListener('click', acceptTerms);
+
+            viewTermsButton.addEventListener('click', showTerms);
+
+            closeTermsButton.addEventListener('click', showGate);
+
+            backButton.addEventListener('click', showGate);
+
+
+
+            document.addEventListener('keydown', (event) => {
+
+                if (event.key === 'Escape' && !termsDialog.hidden) showGate();
+
+            });
+
+
+
+            if (accepted) {
+
+                gate.hidden = true;
+
+                termsDialog.hidden = true;
+
+                siteShell.inert = false;
+
+                document.body.classList.remove('modal-open');
+
+            } else {
+
+                showGate();
+
+            }
+
+        })();
+
+    </script>
+
+<script>
+        /* ================================================================
+           CHBUTTONS: AÑADIR CANCIONES ES MUY FÁCIL 🎧
+
+           1) Busca la lista SONIDOS_MEMES o MUSICA_NORMAL.
+           2) Copia un objeto completo y pégalo al final de esa lista.
+           3) Cambia titulo, artista, perfil y url.
+           4) Usa el enlace NORMAL de la pista de SoundCloud; NO pegues el
+              código <iframe> ni un enlace que termine en /embed/.
+           5) Respeta las comas entre objetos. La última canción no necesita
+              coma, aunque JavaScript moderno también las admite.
+
+           PLANTILLA PARA COPIAR:
+           {
+               titulo: "Nombre de la canción",
+               artista: "Nombre del artista",
+               perfil: "https://soundcloud.com/nombre-del-artista",
+               url: "https://soundcloud.com/nombre-del-artista/nombre-de-la-pista"
+           },
+
+           Para que aparezca en la sección de memes, añádela a SONIDOS_MEMES.
+           Para música normal/videojuegos, añádela a MUSICA_NORMAL.
+           El resto de la página se actualiza automáticamente.
+           ================================================================ */
+
+        const SONIDOS_MEMES = [
+    {
+        "titulo": "Spider-Man Polyester Edit (looped)",
+        "artista": "goonn",
+        "perfil": "https://soundcloud.com/herrrichard",
+        "url": "https://soundcloud.com/herrrichard/spider-man-polyester-edit"
+    },
+    {
+        "titulo": "Wind Waker - Great Fairy Fountain slowed + reverb",
+        "artista": "senkor",
+        "perfil": "https://soundcloud.com/aslan-asrin",
+        "url": "https://soundcloud.com/aslan-asrin/wind-waker-great-fairy"
+    },
+    {
+        "titulo": "Gummibär x Goofy Ahh Sounds",
+        "artista": "ik.wav",
+        "perfil": "https://soundcloud.com/ikwavv",
+        "url": "https://soundcloud.com/ikwavv/gummibaer-x-goofy-ahh-sounds-x"
+    },
+    {
+        "titulo": "Goofy Ahh Type Beat Part 2 (Bababooey Phonk)",
+        "artista": "Yanis Bouimah",
+        "perfil": "https://soundcloud.com/yanis-bouimah",
+        "url": "https://soundcloud.com/yanis-bouimah/goofy-ahh-type-beat-part-2-bababooey-phonk"
+    },
+    {
+        "titulo": "Clash Royale Intro",
+        "artista": "straight chillin",
+        "perfil": "https://soundcloud.com/sponge-roblox",
+        "url": "https://soundcloud.com/sponge-roblox/clash-royale-intro"
+    },
+    {
+        "titulo": "Minecraft Sound Effects: Walking on Grass",
+        "artista": "Yoni Rottner",
+        "perfil": "https://soundcloud.com/user-487184331",
+        "url": "https://soundcloud.com/user-487184331/minecraft-sound-effects-walking-and-running-on-grass-sound-effect"
+    },
+    {
+        "titulo": "Hello I’m Your Neighbor 808 Remix (Full Version)",
+        "artista": "Bomberman1003",
+        "perfil": "https://soundcloud.com/bombermanreal",
+        "url": "https://soundcloud.com/bombermanreal/hello-im-your-neighbor-808"
+    },
+    {
+        "titulo": "ITS ME ITS VERITY (BOI TUFF ALERT)",
+        "artista": "Horror skunx",
+        "perfil": "https://soundcloud.com/bodyee-farhan-949354716",
+        "url": "https://soundcloud.com/bodyee-farhan-949354716/its-me-its-verity"
+    },
+    {
+        "titulo": "Past Lives",
+        "artista": "The Society of Slushii",
+        "perfil": "https://soundcloud.com/slushiisociety",
+        "url": "https://soundcloud.com/slushiisociety/past-lives"
+    },
+    {
+        "titulo": "misery . . . (prod. pupsies & elujjin/goetia)",
+        "artista": "pupsies",
+        "perfil": "https://soundcloud.com/pupsies",
+        "url": "https://soundcloud.com/pupsies/misery-prod-pupsies-elujjin"
+    },
+    {
+        "titulo": "yara yara phonk (aura farming)",
+        "artista": "@lehadollar",
+        "perfil": "https://soundcloud.com/not-rozshow",
+        "url": "https://soundcloud.com/not-rozshow/yara-yara-fonk-aura-farming"
+    },
+    {
+        "titulo": "john pork is calling",
+        "artista": "Tyler Yopa",
+        "perfil": "https://soundcloud.com/tyler-yopa",
+        "url": "https://soundcloud.com/tyler-yopa/john-pork-is-calling-moooort"
+    },
+    {
+        "titulo": "Vine Boom Sound Effect",
+        "artista": "",
+        "perfil": "",
+        "url": "https://soundcloud.com/user-928868946/vine-boom-sound-effect"
+    },
+    {
+        "titulo": "Metal Pipe Falling Sound Effect",
+        "artista": "",
+        "perfil": "",
+        "url": "https://soundcloud.com/user-309218266/metal-pipe-falling-sound"
+    },
+    {
+        "titulo": "Bruh Sound Effect",
+        "artista": "",
+        "perfil": "",
+        "url": "https://soundcloud.com/santi-nares/bruh-sound-effect"
+    },
+    {
+        "titulo": "Among Us Drip",
+        "artista": "",
+        "perfil": "",
+        "url": "https://soundcloud.com/vincent-thompson-381528708/among-us-drip"
+    },
+    {
+        "titulo": "Coffin Dance",
+        "artista": "",
+        "perfil": "",
+        "url": "https://soundcloud.com/nantonik/coffin-dance"
+    },
+    {
+        "titulo": "You Reposted in the Wrong Neighborhood",
+        "artista": "",
+        "perfil": "",
+        "url": "https://soundcloud.com/shokkbutt/full-you-reposted-in-the-wrong-neighborhood"
+    },
+    {
+        "titulo": "Never Gonna Give You Up",
+        "artista": "",
+        "perfil": "",
+        "url": "https://soundcloud.com/rick-astley-official/never-gonna-give-you-up"
+    }
+];
+
+        const MUSICA_NORMAL = [
+    {
+        "titulo": "xi - Freedom Dive↓ (Full)",
+        "artista": "Xi",
+        "perfil": "https://soundcloud.com/whoisthisperson",
+        "url": "https://soundcloud.com/whoisthisperson/xi-freedom-dive"
+    },
+    {
+        "titulo": "FLAVOR FOLEY Static ft. Hatsune Miku",
+        "artista": "Flavor Foley",
+        "perfil": "https://soundcloud.com/radwon-604390619",
+        "url": "https://soundcloud.com/radwon-604390619/static-ft-hatsune-miku"
+    },
+    {
+        "titulo": "BIRDBRAIN",
+        "artista": "Jaime Paige",
+        "perfil": "https://soundcloud.com/1-3-50n",
+        "url": "https://soundcloud.com/1-3-50n/birdbrain"
+    },
+    {
+        "titulo": "色彩電気 / Color & Electricity",
+        "artista": "Dilly Drop",
+        "perfil": "https://soundcloud.com/user615214061",
+        "url": "https://soundcloud.com/user615214061/mushi-p-x-hatsune-miku-color-and-electricity"
+    },
+    {
+        "titulo": "Sherbet Lobby - Nico's Nextbots",
+        "artista": "Nico's Nextbots (Soundtrack)",
+        "perfil": "https://soundcloud.com/nicos-nextbots-ost",
+        "url": "https://soundcloud.com/nicos-nextbots-ost/sherbet-lobby-nicos-nextbots"
+    },
+    {
+        "titulo": "Pluggnb Lobby - Nico's Nextbots",
+        "artista": "Nico's Nextbots (Soundtrack)",
+        "perfil": "https://soundcloud.com/nicos-nextbots-ost",
+        "url": "https://soundcloud.com/nicos-nextbots-ost/pluggnb-lobby-nicos-nextbots"
+    },
+    {
+        "titulo": "Nextbob Lobby - Nico's Nextbots",
+        "artista": "Nico's Nextbots (Soundtrack)",
+        "perfil": "https://soundcloud.com/nicos-nextbots-ost",
+        "url": "https://soundcloud.com/nicos-nextbots-ost/nextbob-lobby-nicos-nextbots"
+    },
+    {
+        "titulo": "Little Big Lobby - Nico's Nextbots",
+        "artista": "Nico's Nextbots (Soundtrack)",
+        "perfil": "https://soundcloud.com/nicos-nextbots-ost",
+        "url": "https://soundcloud.com/nicos-nextbots-ost/little-big-lobby-nicos-nextbots-1"
+    },
+    {
+        "titulo": "Dreiton",
+        "artista": "C418",
+        "perfil": "https://soundcloud.com/user-208982708",
+        "url": "https://soundcloud.com/user-208982708/c418-dreiton-second-half"
+    },
+    {
+        "titulo": "Pigstep - Minecraft",
+        "artista": "Lena Raine_",
+        "perfil": "https://soundcloud.com/infinited-690315673",
+        "url": "https://soundcloud.com/infinited-690315673/pigstep-stereo-mix-minecraft"
+    },
+    {
+        "titulo": "Mii Channel Theme",
+        "artista": "",
+        "perfil": "",
+        "url": "https://soundcloud.com/penn-bloomers-band/mii-channel-theme"
+    },
+    {
+        "titulo": "Mario Kart Wii — Coconut Mall",
+        "artista": "",
+        "perfil": "",
+        "url": "https://soundcloud.com/fatherdevito/coconut-mall-mario-kart-wii"
+    }
+];
+
+        function crearReproductorCancion(cancion, categoria) {
+            const tarjeta = document.createElement('article');
+            tarjeta.className = 'track-card';
+
+            const encabezado = document.createElement('div');
+            encabezado.className = 'track-name-row';
+
+            const icono = document.createElement('span');
+            icono.className = 'track-name-icon';
+            icono.setAttribute('aria-hidden', 'true');
+            icono.textContent = categoria === 'memes' ? '😂' : '🎵';
+
+            const titulo = document.createElement('h3');
+            titulo.textContent = cancion.titulo;
+            encabezado.append(icono, titulo);
+
+            const reproductor = document.createElement('iframe');
+            reproductor.title = cancion.titulo + ' — SoundCloud';
+            reproductor.loading = 'lazy';
+            reproductor.scrolling = 'no';
+            reproductor.allow = 'autoplay';
+
+            const embed = new URL('https://w.soundcloud.com/player/');
+            embed.searchParams.set('url', cancion.url);
+            embed.searchParams.set('color', '#6956e8');
+            embed.searchParams.set('auto_play', 'false');
+            embed.searchParams.set('hide_related', 'true');
+            embed.searchParams.set('show_comments', 'false');
+            embed.searchParams.set('show_user', 'true');
+            embed.searchParams.set('show_reposts', 'false');
+            embed.searchParams.set('show_teaser', 'true');
+            embed.searchParams.set('visual', 'true');
+            reproductor.src = embed.toString();
+
+            const creditos = document.createElement('div');
+            creditos.className = 'track-credit';
+
+            if (cancion.artista) {
+                if (cancion.perfil) {
+                    const artistaLink = document.createElement('a');
+                    artistaLink.href = cancion.perfil;
+                    artistaLink.target = '_blank';
+                    artistaLink.rel = 'noopener noreferrer';
+                    artistaLink.textContent = cancion.artista;
+                    creditos.append(artistaLink);
+                } else {
+                    creditos.append(document.createTextNode(cancion.artista));
+                }
+                creditos.append(document.createTextNode(' · '));
+            }
+
+            const cancionLink = document.createElement('a');
+            cancionLink.href = cancion.url;
+            cancionLink.target = '_blank';
+            cancionLink.rel = 'noopener noreferrer';
+            cancionLink.textContent = cancion.artista ? cancion.titulo : 'Escuchar en SoundCloud';
+            creditos.append(cancionLink);
+
+            tarjeta.append(encabezado, reproductor, creditos);
+            return tarjeta;
+        }
+
+        function cargarCanciones(lista, contenedorId, categoria) {
+            const contenedor = document.getElementById(contenedorId);
+            if (!contenedor) return;
+            const sinJavaScript = contenedor.querySelector('noscript');
+            contenedor.replaceChildren();
+            lista.forEach((cancion) => {
+                if (!cancion.titulo || !cancion.url) return;
+                contenedor.append(crearReproductorCancion(cancion, categoria));
+            });
+        }
+
+        cargarCanciones(SONIDOS_MEMES, 'memes-grid', 'memes');
+        cargarCanciones(MUSICA_NORMAL, 'musica-grid', 'musica');
+    </script>
 </body></html>
